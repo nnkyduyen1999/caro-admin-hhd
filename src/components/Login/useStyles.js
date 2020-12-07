@@ -9,6 +9,8 @@ export const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     backgroundPosition: "center",
+    // height: '100%',
+    // width: '100'
   },
   formContainer: {
     alignSelf: "center",
