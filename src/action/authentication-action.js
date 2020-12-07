@@ -1,4 +1,5 @@
 import {apiLogin} from "../service/authentication-service";
+import {useHistory} from "react-router-dom";
 
 export const LOGIN_SUCCEEDED = "LOGIN_SUCCEEDED";
 export const LOGIN_FAILED = "LOGIN_FAILED";
@@ -15,21 +16,12 @@ export const login = (dispatch) => (email, password) => {
         .then(response => {
             console.log(response.data)
             dispatch(loginSucceeded(response.data))
-        }).catch(err => {
-        dispatch(loginFailed(err.response.data))
-    })
+        })
+        .catch(err => {
+            dispatch(loginFailed(err.response.data))
+        })
 }
 
 export const logout = (dispatch) => () => {
     dispatch(logoutRequest())
 }
-
-//
-// export const loginGoogle = (dispatch) => () => {
-//     dispatch({type: LOGIN_REQUEST})
-//     apiLoginGoogle().then(response => {
-//         dispatch(loginSucceeded(response.data))
-//     }).catch(err => {
-//         dispatch(loginFailed(err.response.data))
-//     })
-// }

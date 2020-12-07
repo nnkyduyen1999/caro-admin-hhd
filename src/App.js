@@ -7,28 +7,6 @@ import Home from "./components/Home/home";
 import PublicRoute from "./router/public-router";
 import PrivateRoute from "./router/private-router";
 
-const MyRoute = () => {
-    const {state} = useContext(AuthenticationContext);
-    // console.log("myroute: ", state);
-    return (
-        <BrowserRouter>
-            <Switch>
-                {/*<Route exact path='/'>*/}
-                {/*    {state.isAuthenticated ? <Redirect to='/home'/> : <Redirect to='/login'/>}*/}
-                {/*</Route>*/}
-                {/*<Route path='/home'>*/}
-                {/*    {state.isAuthenticated ? <Home/> : <Redirect to='/login'/>}*/}
-                {/*</Route>*/}
-                {/*<Route path='/login'>*/}
-                {/*    {state.isAuthenticated ? <Redirect to='/home'/> : <Login/>}*/}
-                {/*</Route>*/}
-                <PublicRoute restricted={true} component={Login} path="/login" exact/>
-                <PrivateRoute component={Home} path="/dashboard" exact/>
-            </Switch>
-        </BrowserRouter>
-    )
-}
-
 function App() {
     return (
         <AuthenticationProvider>

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useStyles} from "./useStyles";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import {AuthenticationContext} from '../../provider/authentication-provider'
 import ErrorAlert from "../common/error-alert";
+import {useHistory} from 'react-router-dom'
 
 const Login = () => {
     const classes = useStyles();
@@ -21,12 +22,17 @@ const Login = () => {
     const [error, setError] = useState(false);
     // const [errorMessage, setErrorMessage] = useState("");
     const {state, login} = useContext(AuthenticationContext)
+    const history = useHistory();
+
+    useEffect(() => {
+        if(state.isAuthenticated)
+            history.push('/home')
+    }, [state.isAuthenticated])
 
     const handleLogin = (e) => {
         e.preventDefault();
         login(email, password);
         console.log(state);
-
     }
 
     return (
