@@ -24,12 +24,7 @@ const items = [
         href: '/games',
         icon: SportsEsportsOutlinedIcon,
         title: 'Game History'
-    },
-    {
-        href: '/user-account',
-        icon: PersonOutlineOutlinedIcon,
-        title: 'Account'
-    },
+    }
 ];
 
 const useStyles = makeStyles(() => ({
