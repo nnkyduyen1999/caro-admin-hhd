@@ -9,7 +9,7 @@ import PrivateRoute from "./router/private-router";
 import ListUser from './components/ListUser/list-user';
 import UserAccount from "./components/User Account/index";
 
-function App() {
+export default function App() {
     return (
         <AuthenticationProvider>
             <BrowserRouter>
