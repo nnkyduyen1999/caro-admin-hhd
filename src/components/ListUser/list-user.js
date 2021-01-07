@@ -11,6 +11,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
+import SearchBar from "../SearchBar/search-bar";
 
 const columns = [
     {id: "id", label: "ID", minWidth: 170},
@@ -36,7 +37,8 @@ const columns = [
 
 const useStyles = makeStyles(theme => ({
     root: {
-        width: "100%",
+        width: "90%",
+
     },
     container: {
         maxHeight: 440,
@@ -60,12 +62,17 @@ const useStyles = makeStyles(theme => ({
     contentContainer: {
         display: 'flex',
         flex: '1 1 auto',
-        overflow: 'hidden'
+        overflow: 'hidden',
+
     },
     content: {
+        display: 'flex',
         flex: '1 1 auto',
+        flexDirection: 'column',
+        alignItems: 'center',
+
         height: '100%',
-        overflow: 'auto'
+        overflow: 'auto',
     }
 }));
 
@@ -112,9 +119,11 @@ const ListUser = (props) => {
         <div className={classes.layoutRoot}>
             <Header/>
             <NavBar/>
+
             <div className={classes.wrapper}>
                 <div className={classes.contentContainer}>
                     <div className={classes.content}>
+                        <SearchBar/>
                         <Paper className={classes.root}>
                             <TableContainer className={classes.container}>
                                 <Table stickyHeader aria-label="sticky table">

@@ -1,11 +1,10 @@
 import React from 'react';
-import {Link as RouterLink, useLocation} from 'react-router-dom';
+import {Link as RouterLink} from 'react-router-dom';
 
-import {Avatar, Box, Button, Divider, Drawer, Hidden, List, makeStyles, Typography} from '@material-ui/core';
+import {Avatar, Box, Divider, Drawer, Hidden, List, makeStyles, Typography} from '@material-ui/core';
 
 import SportsEsportsOutlinedIcon from '@material-ui/icons/SportsEsportsOutlined';
 import PeopleOutlineOutlinedIcon from '@material-ui/icons/PeopleOutlineOutlined';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import NavItem from "./NavItem";
 
 const user = {
