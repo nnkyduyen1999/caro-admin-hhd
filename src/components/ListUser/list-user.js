@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {apiAllUsers} from "../../service/user-sevice";
+import {apiAllUsers, apiSearch} from "../../service/user-sevice";
 import {makeStyles} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -82,24 +82,28 @@ const ListUser = (props) => {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
+    const mapDataToRow = (data) => {
+        return data.map(function (item) {
+            const status = [
+                !item.isValidate ? "Not validated" : null,
+                item.isBlock ? "Blocked" : null,
+            ]
+                .filter(Boolean)
+                .join(", ");
+            return {
+                id: item._id,
+                username: item.username,
+                email: item.email,
+                trophy: item.trophy,
+                status: status,
+            };
+        });
+    }
+
     useEffect(() => {
         apiAllUsers()
             .then((res) => {
-                const rows = res.data.map(function (item) {
-                    const status = [
-                        !item.isValidate ? "Not validated" : null,
-                        item.isBlock ? "Blocked" : null,
-                    ]
-                        .filter(Boolean)
-                        .join(", ");
-                    return {
-                        id: item._id,
-                        username: item.username,
-                        email: item.email,
-                        trophy: item.trophy,
-                        status: status,
-                    };
-                });
+                const rows = mapDataToRow(res.data);
                 console.log(rows);
                 setRows(rows);
             })
@@ -115,15 +119,24 @@ const ListUser = (props) => {
         setPage(0);
     };
 
+    const handleSearch = (keyword) => {
+        if(keyword !== '') {
+            // console.log("search")
+            apiSearch(keyword).then(res => {
+                const newRows = mapDataToRow(res.data.users);
+                setRows(newRows);
+            }).catch((err) => console.log(err));
+        }
+    }
+
     return (
         <div className={classes.layoutRoot}>
             <Header/>
             <NavBar/>
-
             <div className={classes.wrapper}>
                 <div className={classes.contentContainer}>
                     <div className={classes.content}>
-                        <SearchBar/>
+                        <SearchBar onSearch={handleSearch}/>
                         <Paper className={classes.root}>
                             <TableContainer className={classes.container}>
                                 <Table stickyHeader aria-label="sticky table">

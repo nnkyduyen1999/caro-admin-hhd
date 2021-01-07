@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import {Box, Button, Card, CardContent, InputAdornment, makeStyles, SvgIcon, TextField} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -11,8 +11,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SearchBar = ({className, ...rest}) => {
+const SearchBar = ({className, onSearch, ...rest}) => {
     const classes = useStyles();
+    const [value, setValue] = useState('');
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        setValue(e.target.value);
+    }
+
+    const handleEnter = (e) => {
+        if(e.key === 'Enter')
+            onSearch(value);
+    }
 
     return (
         <div
@@ -39,6 +50,9 @@ const SearchBar = ({className, ...rest}) => {
                                 }}
                                 placeholder="Search customer"
                                 variant="outlined"
+                                value={value}
+                                onChange={handleChange}
+                                onKeyDown={handleEnter}
                             />
                         </Box>
                     </CardContent>
