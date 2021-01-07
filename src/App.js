@@ -6,6 +6,7 @@ import {AuthenticationContext, AuthenticationProvider} from './provider/authenti
 import Home from "./components/Home/home";
 import PublicRoute from "./router/public-router";
 import PrivateRoute from "./router/private-router";
+import ListUser from './components/ListUser/list-user';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                     </Route>
                     <PublicRoute restricted={true} component={Login} path="/login" exact/>
                     <PrivateRoute component={Home} path="/home" exact/>
+                    <PrivateRoute component={ListUser} path="/list-user" exact/>
                 </Switch>
             </BrowserRouter>
         </AuthenticationProvider>
