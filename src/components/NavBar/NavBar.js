@@ -21,12 +21,12 @@ const items = [
         title: 'Users'
     },
     {
-        href: '/game',
+        href: '/games',
         icon: SportsEsportsOutlinedIcon,
         title: 'Game History'
     },
     {
-        href: '/account',
+        href: '/user-account',
         icon: PersonOutlineOutlinedIcon,
         title: 'Account'
     },
