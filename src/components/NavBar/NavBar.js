@@ -16,17 +16,17 @@ const user = {
 
 const items = [
     {
-        href: '/user',
+        href: '/users',
         icon: PeopleOutlineOutlinedIcon,
         title: 'Users'
     },
     {
-        href: '/game',
+        href: '/games',
         icon: SportsEsportsOutlinedIcon,
         title: 'Game History'
     },
     {
-        href: '/account',
+        href: '/user-account',
         icon: PersonOutlineOutlinedIcon,
         title: 'Account'
     },

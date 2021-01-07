@@ -6,6 +6,7 @@ import {AuthenticationProvider} from './provider/authentication-provider'
 import Home from "./components/Home/home";
 import PublicRoute from "./router/public-router";
 import PrivateRoute from "./router/private-router";
+import UserAccount from "./components/User Account/index";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     {/*<PrivateRoute component={Home} path="/home" exact/>*/}
                     <PublicRoute component={Login} path="/login" exact/>
                     <PublicRoute component={Home} path="/home" exact/>
+                    <PublicRoute component={UserAccount} path="/user-account" exact/>
                 </Switch>
             </BrowserRouter>
         </AuthenticationProvider>
