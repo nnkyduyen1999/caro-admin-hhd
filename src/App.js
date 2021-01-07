@@ -7,6 +7,7 @@ import Home from "./components/Home/home";
 import PublicRoute from "./router/public-router";
 import PrivateRoute from "./router/private-router";
 import ListUser from './components/ListUser/list-user';
+import UserAccount from "./components/User Account/index";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     </Route>
                     <PublicRoute restricted={true} component={Login} path="/login" exact/>
                     <PrivateRoute component={Home} path="/home" exact/>
+                    <PublicRoute component={UserAccount} path="/user-account" exact/>
                     <PrivateRoute component={ListUser} path="/list-user" exact/>
                 </Switch>
             </BrowserRouter>
@@ -25,4 +27,4 @@ function App() {
     );
 }
 
-export default App;
+
