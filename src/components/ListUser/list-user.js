@@ -101,13 +101,7 @@ const ListUser = (props) => {
     }
 
     useEffect(() => {
-        apiAllUsers()
-            .then((res) => {
-                const rows = mapDataToRow(res.data);
-                console.log(rows);
-                setRows(rows);
-            })
-            .catch((err) => console.log(err));
+        loadAllUser();
     }, []);
 
     const handleChangePage = (event, newPage) => {
@@ -126,7 +120,19 @@ const ListUser = (props) => {
                 const newRows = mapDataToRow(res.data.users);
                 setRows(newRows);
             }).catch((err) => console.log(err));
+        } else {
+            loadAllUser();
         }
+    }
+
+    const loadAllUser = () => {
+        apiAllUsers()
+            .then((res) => {
+                const rows = mapDataToRow(res.data);
+                console.log(rows);
+                setRows(rows);
+            })
+            .catch((err) => console.log(err));
     }
 
     return (
