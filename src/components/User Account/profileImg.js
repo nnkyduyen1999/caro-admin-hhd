@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Profile = ({ className, ...rest }) => {
+const Profile = ({ createTime, className, ...rest }) => {
   const classes = useStyles();
 
   return (
@@ -50,14 +50,14 @@ const Profile = ({ className, ...rest }) => {
             color="textSecondary"
             variant="body1"
           >
-            {`${moment().format("hh:mm A")} ${user.timezone}`}
+            {createTime}
           </Typography>
         </Box>
       </CardContent>
       <Divider />
       <CardActions>
         <Button color="primary" fullWidth variant="text">
-          Upload picture
+          SET AS ADMIN
         </Button>
       </CardActions>
     </Card>

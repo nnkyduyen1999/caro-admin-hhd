@@ -32,9 +32,9 @@ const useStyles = makeStyles(() => ({
   root: {},
 }));
 
-const ProfileDetails = ({ className, ...rest }) => {
+const ProfileDetails = ({userInfo, className, ...rest }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({
+  const [value, setValues] = useState({
     firstName: "Katarina",
     lastName: "Smith",
     email: "demo@devias.io",
@@ -45,7 +45,7 @@ const ProfileDetails = ({ className, ...rest }) => {
 
   const handleChange = (event) => {
     setValues({
-      ...values,
+      ...value,
       [event.target.name]: event.target.value,
     });
   };
@@ -58,7 +58,7 @@ const ProfileDetails = ({ className, ...rest }) => {
       {...rest}
     >
       <Card>
-        <CardHeader subheader="The information can be edited" title="Profile" />
+        <CardHeader subheader="The information cannot be edited" title="Profile" />
         <Divider />
         <CardContent>
           <Grid container spacing={3}>
@@ -70,7 +70,7 @@ const ProfileDetails = ({ className, ...rest }) => {
                 name="firstName"
                 onChange={handleChange}
                 required
-                value={values.firstName}
+                value={userInfo.firstName}
                 variant="outlined"
               />
             </Grid>
@@ -81,7 +81,7 @@ const ProfileDetails = ({ className, ...rest }) => {
                 name="lastName"
                 onChange={handleChange}
                 required
-                value={values.lastName}
+                value={userInfo.lastName}
                 variant="outlined"
               />
             </Grid>
@@ -92,57 +92,71 @@ const ProfileDetails = ({ className, ...rest }) => {
                 name="email"
                 onChange={handleChange}
                 required
-                value={values.email}
+                value={userInfo.email}
                 variant="outlined"
               />
             </Grid>
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Phone Number"
-                name="phone"
+                label="Username"
+                name="username"
                 onChange={handleChange}
-                type="number"
-                value={values.phone}
+                type="text"
+                value={userInfo.username}
                 variant="outlined"
               />
             </Grid>
-            <Grid item md={6} xs={12}>
+            <Grid item md={3} xs={12}>
               <TextField
                 fullWidth
-                label="Country"
-                name="country"
-                onChange={handleChange}
-                required
-                value={values.country}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Select State"
-                name="state"
+                label="Win"
+                name="winCount"
                 onChange={handleChange}
                 required
-                select
-                SelectProps={{ native: true }}
-                value={values.state}
+                value={userInfo.winCount}
                 variant="outlined"
-              >
-                {states.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              />
+            </Grid>
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth
+                label="Lose"
+                name="loseCount"
+                onChange={handleChange}
+                required
+                value={userInfo.loseCount}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth
+                label="Total game"
+                name="total"
+                onChange={handleChange}
+                required
+                value={userInfo.total}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item md={3} xs={12}>
+              <TextField
+                fullWidth
+                label="Trophies"
+                name="trophy"
+                onChange={handleChange}
+                required
+                value={userInfo.trophy}
+                variant="outlined"
+              />
             </Grid>
           </Grid>
         </CardContent>
         <Divider />
-        <Box display="flex" justifyContent="flex-end" p={2}>
-          <Button color="primary" variant="contained">
-            Save details
+        <Box display="flex" justifyContent="flex-end" p={3}>
+          <Button color="secondary" variant="contained">
+            Block user
           </Button>
         </Box>
       </Card>
