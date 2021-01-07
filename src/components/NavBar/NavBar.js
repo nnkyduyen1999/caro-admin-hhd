@@ -16,7 +16,7 @@ const user = {
 
 const items = [
     {
-        href: '/user',
+        href: '/list-user',
         icon: PeopleOutlineOutlinedIcon,
         title: 'Users'
     },

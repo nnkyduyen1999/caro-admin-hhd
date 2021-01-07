@@ -7,21 +7,29 @@ import Home from "./components/Home/home";
 import PublicRoute from "./router/public-router";
 import PrivateRoute from "./router/private-router";
 import ListUser from './components/ListUser/list-user';
+import {createMuiTheme, ThemeProvider} from "@material-ui/core";
 
 function App() {
+    const darkTheme = createMuiTheme({
+        palette: {
+            type: "dark",
+        },
+    });
     return (
-        <AuthenticationProvider>
-            <BrowserRouter>
-                <Switch>
-                    <Route exact path='/'>
-                        <Redirect to='/login'/>
-                    </Route>
-                    <PublicRoute restricted={true} component={Login} path="/login" exact/>
-                    <PrivateRoute component={Home} path="/home" exact/>
-                    <PrivateRoute component={ListUser} path="/list-user" exact/>
-                </Switch>
-            </BrowserRouter>
-        </AuthenticationProvider>
+        <ThemeProvider theme={darkTheme}>
+            <AuthenticationProvider>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path='/'>
+                            <Redirect to='/login'/>
+                        </Route>
+                        <PublicRoute restricted={true} component={Login} path="/login" exact/>
+                        <PrivateRoute component={Home} path="/home" exact/>
+                        <PrivateRoute component={ListUser} path="/list-user" exact/>
+                    </Switch>
+                </BrowserRouter>
+            </AuthenticationProvider>
+        </ThemeProvider>
     );
 }
 
