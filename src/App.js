@@ -28,7 +28,7 @@ export default function App() {
                         </Route>
                         <PublicRoute restricted={true} component={Login} path="/login" exact/>
                         <PrivateRoute component={Home} path="/home" exact/>
-                        <PublicRoute component={UserAccount} path="/user-account" exact/>
+                        <PublicRoute component={UserAccount} path="/users/:id" exact/>
                         <PrivateRoute component={ListUser} path="/list-user" exact/>
                     </Switch>
                 </BrowserRouter>

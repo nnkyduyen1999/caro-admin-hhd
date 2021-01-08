@@ -3,8 +3,8 @@ import { Container, Grid, makeStyles } from "@material-ui/core";
 import Page from "../common/Page";
 import Profile from "./profileImg";
 import ProfileDetails from "./profileDetail";
-import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import {apiGetUserById} from "../../service/user-sevice";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,14 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Account = () => {
+const Account = ({match}) => {
   const classes = useStyles();
   const [userInfo, setUserInfo] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/users/5ff6e374e7a35443b63d3db0")
-      .then((res) => {
+      apiGetUserById(match.params.id).then((res) => {
         if (res.status === 200) {
           setUserInfo(res.data);
           setIsLoading(false);
@@ -44,7 +43,7 @@ const Account = () => {
           <Container maxWidth="lg">
             <Grid container spacing={3}>
               <Grid item lg={4} md={6} xs={12}>
-                <Profile createTime={userInfo.createTime} />
+                <Profile createTime={userInfo.createTime} avatar={userInfo.avatar}/>
               </Grid>
               <Grid item lg={8} md={6} xs={12}>
                 <ProfileDetails userInfo={userInfo} />

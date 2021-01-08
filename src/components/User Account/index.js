@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const DashboardLayout = () => {
+const DashboardLayout = ({match}) => {
   const classes = useStyles();
 
   return (
@@ -43,7 +43,7 @@ const DashboardLayout = () => {
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
           <div className={classes.content}>
-            <Profile />
+            <Profile match={match}/>
           </div>
         </div>
       </div>

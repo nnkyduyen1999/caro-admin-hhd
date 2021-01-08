@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Profile = ({createTime, className, ...rest}) => {
+const Profile = ({createTime,avatar, className, ...rest}) => {
     const classes = useStyles();
 
     return (
