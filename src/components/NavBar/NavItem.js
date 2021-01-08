@@ -60,6 +60,7 @@ const NavItem = ({
                 className={classes.button}
                 component={RouterLink}
                 to={href}
+
             >
                 {Icon && (
                     <Icon
