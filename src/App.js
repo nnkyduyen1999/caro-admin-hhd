@@ -10,6 +10,7 @@ import ListUser from './components/ListUser/list-user';
 import UserAccount from "./components/User Account/index";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core";
 import GlobalStyle from "./global/GlobalStyle";
+import Chat from "./components/Chat/Chat";
 
 export default function App() {
     const darkTheme = createMuiTheme({
@@ -30,6 +31,7 @@ export default function App() {
                         <PrivateRoute component={Home} path="/home" exact/>
                         <PublicRoute component={UserAccount} path="/users/:id" exact/>
                         <PrivateRoute component={ListUser} path="/list-user" exact/>
+                        <PublicRoute component={Chat} path={'/chat'} exact/>
                     </Switch>
                 </BrowserRouter>
             </AuthenticationProvider>
