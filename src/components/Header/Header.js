@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 
 import {AppBar, Box, Hidden, IconButton, makeStyles, Toolbar, Typography} from '@material-ui/core';
 import InputIcon from '@material-ui/icons/Input';
+import {AuthenticationContext} from "../../provider/authentication-provider";
 
 
 const useStyles = makeStyles(() => ({
@@ -15,6 +16,7 @@ const useStyles = makeStyles(() => ({
 
 const Header = ({className, ...rest}) => {
     const classes = useStyles();
+    const {logout} = useContext(AuthenticationContext);
 
     return (
         <AppBar
@@ -28,7 +30,7 @@ const Header = ({className, ...rest}) => {
                 </Typography>
                 <Box flexGrow={1}/>
                 <Hidden mdDown>
-                    <IconButton color="inherit">
+                    <IconButton color="inherit" onClick={logout}>
                         <InputIcon/>
                     </IconButton>
                 </Hidden>
