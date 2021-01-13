@@ -15,12 +15,8 @@ import {
 } from "@material-ui/core";
 
 const user = {
-    avatar: "https://kimkhavan.files.wordpress.com/2020/01/untitled-2.jpg?w=1024",
-    city: "Los Angeles",
-    country: "USA",
+    avatar: "https://i.redd.it/vn48q55ev4i31.jpg",
     jobTitle: "Senior Developer",
-    name: "Katarina Smith",
-    timezone: "GTM-7",
 };
 
 const useStyles = makeStyles(() => ({
@@ -31,26 +27,23 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Profile = ({createTime,avatar, className, ...rest}) => {
+const Profile = ({info, className, ...rest}) => {
     const classes = useStyles();
-
+    const formatTime = new Date(info.createTime);
     return (
         <Card className={clsx(classes.root, className)} {...rest}>
             <CardContent>
                 <Box alignItems="center" display="flex" flexDirection="column">
                     <Avatar className={classes.avatar} src={user.avatar}/>
-                    <Typography color="textPrimary" gutterBottom variant="h5">
-                        {user.name}
-                    </Typography>
                     <Typography color="textSecondary" variant="body1">
-                        {`${user.city} ${user.country}`}
+                        {info.username}
                     </Typography>
                     <Typography
                         className={classes.dateText}
                         color="textSecondary"
                         variant="body1"
                     >
-                        {createTime}
+                        {formatTime.toUTCString()}
                     </Typography>
                 </Box>
             </CardContent>
