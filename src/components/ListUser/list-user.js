@@ -12,7 +12,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
 import SearchBar from "../SearchBar/search-bar";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const columns = [
   { id: "id", label: "ID", minWidth: 170 },
@@ -79,7 +79,7 @@ const ListUser = (props) => {
   const [rows, setRows] = useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-const history = useHistory();
+  const history = useHistory();
 
   const mapDataToRow = (data) => {
     return data.map(function (item) {

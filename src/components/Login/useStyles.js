@@ -9,6 +9,8 @@ export const useStyles = makeStyles((theme) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     backgroundPosition: "center",
+    paddingLeft: '10px',
+    backgroundPositionX: theme.spacing(4),
     // height: '100%',
     // width: '100'
   },
