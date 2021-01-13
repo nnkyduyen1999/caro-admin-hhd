@@ -11,6 +11,9 @@ import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Collapse from "@material-ui/core/Collapse";
 import FinishedGames from "./FinishedGames";
+import ChatItem from "../Chat/ChatItem";
+import List from "@material-ui/core/List";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +38,6 @@ const Account = ({ match }) => {
         if (res.status === 200) {
           setUserInfo(res.data);
           setIsBlock(res.data.isBlock);
-          // console.log("hihi", res.data.isBlock)
           setIsLoading(false);
         } else {
           console.log(res);
@@ -66,6 +68,7 @@ const Account = ({ match }) => {
         <CircularProgress />
       ) : (
         <>
+          <CssBaseline/>
           <Collapse in={openAlert}>
             <Alert
               variant="filled"
@@ -99,14 +102,7 @@ const Account = ({ match }) => {
                   />
                 </Grid>
               </Grid>
-              <Grid container spacing={3}>
-                <Grid item lg={4} md={6} xs={12}>
-                  {/* <Profile info={userInfo} /> */}
-                </Grid>
-                <Grid item lg={8} md={6} xs={12}>
-                  <FinishedGames match={match}/>
-                </Grid>
-              </Grid>
+              <FinishedGames match={match}/>
             </Container>
           </Page>
         </>
