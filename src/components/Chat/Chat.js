@@ -95,9 +95,8 @@ const Chat = ({messages}) => {
 
     return (
         // messages ?
-            <Grid container className={classes.container}>
+            <div className={classes.container}>
                 <CssBaseline/>
-                <Grid item md={12}>
                     <List className={classes.conversationContainer} id={'bottom'}>
                         {messages.map((message, i) => {
                             const isOwn = message.senderName === 'thanhhang';
@@ -105,8 +104,7 @@ const Chat = ({messages}) => {
                                              senderName={message.senderName}/>
                         })}
                     </List>
-                </Grid>
-            </Grid>
+            </div>
             // :
             // <div className={classes.process}>
             //     <CircularProgress/>
@@ -116,24 +114,18 @@ const Chat = ({messages}) => {
 
 const useStyles = makeStyles(theme => ({
     container: {
-        flex: 1,
+        // flex: 1,
         border: "0.5px solid",
-        maxWidth: 360,
+        // maxWidth: 360,
+        width: '90%'
     },
     conversationContainer: {
         height: 300,
-        width: '100%',
+        // width: '100%',
         position: 'relative',
         overflowY: 'auto',
+        width: '90%'
     },
-    process: {
-        display: 'flex',
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 300,
-        maxWidth: 360,
-    }
 }));
 
 export default Chat;
