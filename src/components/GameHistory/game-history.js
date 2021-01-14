@@ -43,8 +43,6 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     conversationContainer: {
-        height: 300,
-        // width: '100%',
         position: 'relative',
         overflowY: 'auto',
         width: '100%'

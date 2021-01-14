@@ -81,8 +81,6 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: theme.spacing(2)
     },
     conversationContainer: {
-        // height: 100,
-        // width: '100%',
         position: 'relative',
         overflowY: 'auto',
         width: '100%'
