@@ -32,7 +32,7 @@ export default function DataTable({match}) {
                             xPlayer: game.xUsername,
                             oPlayer: game.oUsername,
                             winner: game.winner,
-                            messages: game.messages
+                            messages: []
                         }))
                     );
                     console.log("list games finished", res.data);

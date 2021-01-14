@@ -7,7 +7,7 @@ import Home from "./components/Home/home";
 import PublicRoute from "./router/public-router";
 import PrivateRoute from "./router/private-router";
 import ListUser from './components/ListUser/list-user';
-import UserAccount from "./components/User Account/index";
+import UserAccount from "./components/UserAccount/index";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core";
 import GlobalStyle from "./global/GlobalStyle";
 import Chat from "./components/Chat/Chat";
