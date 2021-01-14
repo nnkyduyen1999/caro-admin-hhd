@@ -32,7 +32,7 @@ export default function DataTable({match}) {
                             xPlayer: game.xUsername,
                             oPlayer: game.oUsername,
                             winner: game.winner,
-                            messages: []
+                            messageList: game.messageList
                         }))
                     );
                     console.log("list games finished", res.data);
@@ -61,7 +61,8 @@ export default function DataTable({match}) {
                     <DataGrid
                         rows={listGame} columns={columns} pageSize={5}
                         onRowClick={data => {
-                            setMessages(data.row.messages);
+                            console.log(data.row.messageList)
+                            setMessages(data.row.messageList);
                         }}
                     />
                 </div>
