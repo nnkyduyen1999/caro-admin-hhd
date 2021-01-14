@@ -9,8 +9,8 @@ import NavItem from "./NavItem";
 
 const user = {
     avatar: 'https://kimkhavan.files.wordpress.com/2020/01/untitled-2.jpg?w=1024',
-    jobTitle: 'Senior Developer',
-    name: 'Katarina Smith'
+    jobTitle: 'Caro Admin HHD',
+    name: 'Admin'
 };
 
 const items = [
